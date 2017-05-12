@@ -1,19 +1,18 @@
 <?php
 	require('connect.php');
     // If the values are posted, insert them into the database.
-    if (isset($_POST['username']) && isset($_POST['password']))
-	{
-		$uid = $_POST['id'];
+    if (isset($_POST['uname']) && isset($_POST['passwd'])){
+        $uid = $_POST['id'];
 		$name = $_POST['name'];
-        $lname = $_POST['lastname'];
+		$lname = $_POST['lastname'];
 		$email = $_POST['email'];
 		$mobileno = $_POST['mobile'];
-		$addr = $_POST['address'];
-		$username = $_POST['username'];		
- 		$password = $_POST['passwd'];
+		$address = $_POST['addr'];
+		$username = $_POST['uname'];
+		$password = $_POST['password'];
 		$status = $_POST['status'];
-		
-        $query = "INSERT INTO Event_Management.members (id, name, lastname, email, mobile, address, username, passwd, status ) VALUES ('$uid','$name','$lname', '$email', '$mobileno', '$addr', '$username', '$password', '$status')";
+ 	
+        $query = "INSERT INTO event_mgmt.members (uid, name, lastname, email, mobile, addr, uname, password, status ) VALUES ('$uid', '$name', '$lname', '$email', '$mobileno', '$address', '$username', '$password', '$status')";
 		//echo $query;
 		//exit;
         $result = mysqli_query($connection, $query);
@@ -42,36 +41,52 @@
 <div class="container">
       <form class="form-signin" method="POST">
         <h2 class="form-signin-heading">Please Register</h2>
-        <div class="input-group">
+		
+		<table width="274" border="0" align="center" cellpadding="2" cellspacing="0">
+  </tr>
+  <div class="input-group">
 	  <span class="input-group-addon" id="basic-addon1"></span>
-	  <input type="text" name="uname" class="form-control" placeholder="Username" required>
-	</div>
-		  <input type="int" name="id" value=""/>
-		  <br>
-		  <label for="inputLname" class="sr-only">Last Name</label>
-		  <input type="text" name="lastname" value=""/>
-		  <br>
-		   <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-		  <br>
-		  <label for="inputMobile" class="sr-only">Mobile No.:</label>
-		  <input typw="mobile" name="mobile" value=""/>
-		  <br>
-		  <label for="inputAddress" class="sr-only">Address</label>
-		  <input type="textarea" name="address" value=""/>
-		  <br>
-		  <label for="inputName" class="sr-only">User Name:</label>
-		  <input type="text" name="username" value=""/>
-		  <br>
-		 <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name="passwd" id="inputPassword" class="form-control" placeholder="Password" required>
-		  <br>
-		  <label for="inputStatus" class="sr-only">Status</label>
-		  <input type="text" name="status" value=""/>
-		  <br>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-        <a class="btn btn-lg btn-primary btn-block" href="login.php">Login</a>
-      </form>
+  <tr>
+    <td width="95"><div align="right">Name:</div></td>
+    <td width="171"><input type="text" name="name" id="inputName" class="form-control" placeholder="Name" required autofocus></td>
+  </tr>
+  <tr>
+    <td><div align="right">Last Name:</div></td>
+    <td><input type="text" name="lastname" id="inputLname" class="form-control" placeholder="Last Name" required autofocus></td>
+  </tr>
+  <tr>
+    <td><div align="right">Email:</div></td>
+    <td><input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus></td>
+  </tr>
+  <tr>
+    <td><div align="right">Mobile No.::</div></td>
+    <td><input type="text" name="mobile" id="inputMobile" class="form-control" placeholder="Mobile" required autofocus></td>
+  </tr>
+  <tr>
+    <td><div align="right">Address</div></td>
+    <td><input type="text" name="addr" id="inputAddress" class="form-control" placeholder="Address" required autofocus></td>
+  </tr>
+  <tr>
+    <td><div align="right">Username:</div></td>
+    <td> <input type="text" name="uname" class="form-control" placeholder="Username" required></td>
+  </tr>
+ <tr>
+    <td><div align="right">Password:</div></td>
+    <td><input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required autofocus></td>
+  </tr>
+ <tr>
+    <td><div align="right">Status:</div></td>
+    <td><input type="password" name="passwd" id="inputPassword" class="form-control" placeholder="Password" required></td>
+  </tr>
+ 
+</table
+
+ ><button class="btn btn-lg btn-primary btn-block" type="submit">
+<div align="center">Register</div>
+</button>
+<a class="btn btn-lg btn-primary btn-block" href="login.php">Login</a>
+
+ </form>
 </div>
 </html>
 
