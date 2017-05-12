@@ -11,8 +11,8 @@
 		$username = $_POST['uname'];
 		$password = $_POST['password'];
 		$status = $_POST['status'];
- 	
-        $query = "INSERT INTO event_mgmt.members (uid, name, lastname, email, mobile, addr, uname, password, status ) VALUES ('$uid', '$name', '$lname', '$email', '$mobileno', '$address', '$username', '$password', '$status')";
+ 	echo $username;
+        $query = "INSERT INTO event_mgmt.members (id, name, lastname, email, mobile, addr, uname, password, status ) VALUES ('$uid', '$name', '$lname', '$email', '$mobileno', '$address', '$username', '$password', '$status')";
 		//echo $query;
 		//exit;
         $result = mysqli_query($connection, $query);
@@ -76,7 +76,7 @@
   </tr>
  <tr>
     <td><div align="right">Status:</div></td>
-    <td><input type="password" name="passwd" id="inputPassword" class="form-control" placeholder="Password" required></td>
+    <td><input type="status" name="status" id="inputStatus" class="form-control" placeholder="Status" required></td>
   </tr>
  
 </table
