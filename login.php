@@ -5,7 +5,7 @@ if(isset($_POST) & !empty($_POST)){
 	$username = mysqli_real_escape_string($connection, $_POST['uname']);
 	$password = md5($_POST['passwd']);
 
-	$sql = "SELECT * FROM `register` WHERE uname='$username' AND passwd='$password'";
+	$sql = "SELECT * FROM `members` WHERE uname='$username' AND passwd='$password'";
 	$result = mysqli_query($connection, $sql);
 	$count = mysqli_num_rows($result);
 	if($count == 1)
